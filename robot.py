@@ -1,4 +1,5 @@
 import openai
+import secrets
 
 class Robot:
 	"""
@@ -8,7 +9,7 @@ class Robot:
 	openai.api_key = API_KEY
 
 	def __init__(self, state):
-		API_KEY = "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"
+		API_KEY = secrets.secrets.API_KEY
 		openai.api_key = API_KEY
 
 		self.prompt = ""
