@@ -2,7 +2,7 @@
 import grammar
 import openai
 import random
-import secrets
+from secrets import secrets
 from robot import Robot
 
 class Environment:
@@ -16,8 +16,8 @@ class Environment:
 
 
 	def __init__(self):
-		API_KEY = secrets.secrets.API_KEY
-		openai.api_key = API_KEY
+
+		openai.api_key = secrets.API_KEY
 
 		print("initializing environment...", end=" ")
 		room = random.choice(grammar.ROOMS)
