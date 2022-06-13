@@ -11,7 +11,9 @@ class Robot:
 		API_KEY = "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"
 		openai.api_key = API_KEY
 
-		self.prompt = state
+		self.prompt = ""
+		self.task = ""
+		self.state = state
 
 	def call_api(self):
 		response = openai.Completion.create(
@@ -24,18 +26,25 @@ class Robot:
 			frequency_penalty=0,
 			presence_penalty=0
 			)
-		print("PROMPT: ",self.prompt)
-		print(response)
+		verbose = False
+		if verbose:
+			print("PROMPT: ",self.prompt)
+			print(response)
 		self.action= response['choices'][0]['text']
 
 	def get_instruction(self):
-		task = input("Please specify a task: ")
-		self.prompt = f"The following are steps to {task}: \n1."
+		self.prompt = self.state
+		self.task = input("Please specify a task: ")
+		self.prompt += f"The following are steps to {self.task}:"
+	def get_feedback(self):
+		feedback = input("Please provide feedback: ")
+		self.prompt += f"\n{feedback} so to {self.task} you should:" #TODO: we might want to append this to state? Not sure what that will be in the future.
 	def propose_action(self):
 		while True:
 			self.call_api()
-			user_in = input(f"{self.action} -- type enter to try again / x to terminate: ")
-			if user_in == 'x':
+			user_in = input(f"{self.action} -- type enter to try again / y to proceed: ")
+			if user_in == 'y':
+				self.prompt += self.action + '\n'
 				break
 
 
