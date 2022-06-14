@@ -40,7 +40,17 @@ OBJECTS = {
         'freezer',
         'cupboard'
         ],
-    'floor': ['action figure','book','empty soda can','guitar','candy wrapper','shoe','sock','shirt','pair of pants','plate']
+    'floor': ['action figure',
+        'book',
+        'empty soda can',
+        'guitar',
+        'candy wrapper',
+        'shoe',
+        'sock',
+        'shirt',
+        'pair of pants',
+        'plate'
+        ]
     }
 UNUSUAL_OBJECTS = ['dead body', 'sword', 'time machine', 'dragon']
 AMBIGUOUS_OBJECTS = ['helicopter', 'airplane', 'train'] # These objects would be inferred to be toys in context. I'm curious to see how the model would handle them.

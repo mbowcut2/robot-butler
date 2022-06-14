@@ -23,14 +23,6 @@ class Environment:
 		room = random.choice(grammar.ROOMS)
 		room_objects = random.sample(grammar.OBJECTS[room], 4)
 		floor_objects = random.sample(grammar.OBJECTS['floor'], 4)
-		object1 = random.choice(grammar.OBJECTS[room]) #TODO: get rid of duplicates
-		object2 = random.choice(grammar.OBJECTS[room])
-		object3 = random.choice(grammar.OBJECTS[room])
-		object4 = random.choice(grammar.OBJECTS[room])
-		object5 = random.choice(grammar.OBJECTS['floor'])
-		object6 = random.choice(grammar.OBJECTS['floor'])
-		object7 = random.choice(grammar.OBJECTS['floor'])
-		object8 = random.choice(grammar.OBJECTS['floor'])
 		self.state = f"You are in the {room}. You look around and see a {room_objects[0]}, a {room_objects[1]}, a {room_objects[2]} and a {room_objects[3]}. There is a {floor_objects[0]}, {floor_objects[1]}, {floor_objects[2]}, and {floor_objects[3]} on the floor. \n"
 		print("done \n \n")
 		print(self.state)
